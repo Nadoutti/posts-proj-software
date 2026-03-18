@@ -45,6 +45,6 @@ jobs:
         key: ${{ secrets.KEY_TEST }}
         port: 22
         script: |
-          docker stop users
-          docker rm --force users
-          docker run -d --name posts-app --network=rede -p 8081:5000 nadoutti/posts-zambao:${{ github.sha }}
+          sudo docker stop posts-app
+          sudo docker rm --force posts-app
+          sudo docker run -d --name posts-app --network=rede -p 8081:5000 nadoutti/posts-zambao:${{ github.sha }}
